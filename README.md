@@ -1,0 +1,1 @@
+Digital Subscription Manager addresses this gap by offering a comprehensive and technology-driven solution that consolidates all OTT subscription data into one platform. It provides real-time insights, cost-saving suggestions, and contentrecommendations, empowering users to take full control of their digital entertainment experience.
