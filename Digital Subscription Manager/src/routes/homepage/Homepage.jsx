@@ -9,7 +9,7 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
-      <img src="/orbital.png"  className="orbital" alt="" />
+      <img src="/homepagebg1.avf"  className="orbital" alt="" />
       <div className="left">
         <h1>StreamManage</h1>
         <h2>Effortless Subscription Management, All in One Place</h2>
