@@ -22,8 +22,6 @@
         h1{
             font-size: 90px;
             background: rgb(0,0,0);
-            /* background: linear-gradient(162deg, rgba(0,0,0,1) 0%, rgba(33,33,2,1) 6%, rgba(237,221,13,1) 100%); */
-            /* background-image: linear-gradient(to left top, #000000, #522728, #a05034, #de8c2a, #ffd700); */
             background-image: linear-gradient(to right top, #c34a36, #bf2e4c, #b11864, #96187b, #6b288f);
             background-clip: text;
             -webkit-background-clip: text;
@@ -86,7 +84,7 @@
                 border-radius: 50px;
 
                 .bg{
-                    background-image: url("/homepageimg.png");
+                    background-image: url("/bg6.jpg");
                     opacity: 0.2;
                     width: 200%;
                     height: 100%;
@@ -97,11 +95,11 @@
 
             }
 
-            .bot{
-                width: 100%;
-                height: 100%;
+            .ottImage{
+                width: 80%;
+                height: 80%;
                 object-fit: contain;
-                animation: 3s ease-in-out infinite alternate botAnimate;
+                animation: 3s ease-in-out infinite alternate ottImageAnimate;
             }
 
             .chat{
@@ -174,11 +172,11 @@
     }
 
     100%{
-        transform: rotate(70deg);
+        transform: rotate(80deg);
     }
 }
 
-@keyframes botAnimate{
+@keyframes ottImageAnimate{
     0%{
         transform: scale(1) rotate(0deg);
     }

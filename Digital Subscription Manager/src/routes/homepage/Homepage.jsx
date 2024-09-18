@@ -9,19 +9,20 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
-      <img src="/homepagebg1.avf"  className="orbital" alt="" />
+      <img src="/bg3.jpg"  className="orbital" alt="" />
       <div className="left">
         <h1>StreamManage</h1>
         <h2>Effortless Subscription Management, All in One Place</h2>
         <h3>Manage your digital subscriptions with ease. Streamline your entertainment choices, track payments, and get personalized content suggestions—all from a single platform.</h3>
         <Link to="/dashboard">Get Started</Link>
       </div>
+      
       <div className="right">
         <div className="imgContainer">
           <div className="bgContainer">
             <div className="bg"></div>
           </div>
-          <img src="/homepageimg.jpg" className="bot" alt="" />
+          <img src="/homepageimg.jpg" className="ottImage" alt="" />
           {/* <div className="chat">
             <img src={typingStatus === "human1" ? "/human1.jpeg" : typingStatus === "human2" ? "/human2.jpeg" : "bot2.png"} alt="" />
           <TypeAnimation
