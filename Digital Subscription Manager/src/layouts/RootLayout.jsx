@@ -1,11 +1,23 @@
+import {Outlet, Link } from "react-router-dom"
 import "./rootLayout.css"
 
-const rootLayout = () => {
+const RootLayout = () => {
   return (
-    <div>
-      
+    <div className="rootLayout">
+        <header>
+            <Link to="/" className="logo">
+                <img src="/logo.avif" alt="" />
+                <span>StreamManage</span>
+            </Link>
+            <div className="user">
+              User
+            </div>
+        </header>
+        <main>
+            <Outlet/>
+        </main>
     </div>
-  )
-}
+  );
+};
 
-export default rootLayout
+export default RootLayout;
