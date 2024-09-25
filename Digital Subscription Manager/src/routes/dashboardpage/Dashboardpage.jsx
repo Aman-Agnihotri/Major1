@@ -14,7 +14,7 @@ const Dashboardpage = () => {
     }
   },[isLoaded, userId, navigate]);
 
-  if(!isLoaded) return "Loading....";
+  if(!isLoaded) return <div>Loading....</div>;
 
   return (
     <div className="dashboardpage">
