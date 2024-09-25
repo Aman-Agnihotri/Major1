@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import "./dashboardpage.css"
 import {useAuth} from "@clerk/clerk-react";
 import { useEffect} from "react";
@@ -18,9 +18,23 @@ const Dashboardpage = () => {
 
   return (
     <div className="dashboardpage">
-      <Outlet/>
-    </div>
-  
+    
+    <div className="options">
+        <div className="option">
+          <img src="/subscription.png" alt="" />
+          {/* <Link to="/subscription">See your subscriptions</Link> */}
+          <span>See your subscriptions</span>
+        </div>
+        <div className="option">
+          <img src="/magnifyingglass.jpg" alt="" />
+          <span>Find a Movie</span>
+        </div>
+        <div className="option">
+          <img src="/notification.png" alt="" />
+          <span>Get Alerts</span>
+        </div>
+      </div>
+     </div>  
   )
 }
 

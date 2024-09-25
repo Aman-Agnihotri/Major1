@@ -1,55 +1,56 @@
-import { Link } from "react-router-dom"
-import "./homepage.css"
-// import { TypeAnimation } from "react-type-animation";
-// import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./homepage.css";
+import { TypeAnimation } from "react-type-animation";
+import { useEffect } from "react";
+import { gsap } from "gsap";
 
 const Homepage = () => {
-
-  // const [typingStatus,setTypingStatus] = useState("human1");
+  useEffect(() => {
+    // GSAP stagger animation with adjusted properties
+    gsap.fromTo(
+      ".animate-text",
+      { opacity: 0, y: 50 }, // Starting values
+      { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power4.in " } // Ending values
+    );
+  }, []);
 
   return (
     <div className="homepage">
-      <img src="/bg3.jpg"  className="orbital" alt="" />
+      <img src="/bg3.jpg" className="orbital" alt="" />
       <div className="left">
-        <h1>StreamManage</h1>
-        <h2>Effortless Subscription Management, All in One Place</h2>
-        <h3>Manage your digital subscriptions with ease. Streamline your entertainment choices, track payments, and get personalized content suggestions—all from a single platform.</h3>
+        {/* Add 'animate-text' class to the h1, h2, h3 for GSAP targeting */}
+        <h1 className="animate-text">StreamManage</h1>
+        <h2 className="animate-text">Effortless Subscription Management, All in One Place</h2>
+        <h3 className="animate-text">
+          Manage your digital subscriptions with ease. Streamline your
+          entertainment choices, track payments, and get personalized content
+          suggestions—all from a single platform.
+        </h3>
         <Link to="/dashboard">Get Started</Link>
       </div>
-      
+
       <div className="right">
         <div className="imgContainer">
           <div className="bgContainer">
             <div className="bg"></div>
           </div>
           <img src="/homepageimg.jpg" className="ottImage" alt="" />
-          {/* <div className="chat">
-            <img src={typingStatus === "human1" ? "/human1.jpeg" : typingStatus === "human2" ? "/human2.jpeg" : "bot2.png"} alt="" />
-          <TypeAnimation
-            sequence={[
-              'Can you share a motivational quote?',
-              2000, ()=>{
-                setTypingStatus("bot")
-              },
-              'The only way to do great work is to love what you do.',
-              2000,()=>{
-                setTypingStatus("human1")
-              },
-              ' What’s the translation for “hello” in French?',
-              2000,()=>{
-                setTypingStatus("bot")
-              },
-              ' “Hello” in French is “Bonjour"',
-              2000,()=>{
-                setTypingStatus("human2")
-              },
-            ]}
-            wrapper = "span"
-            repeat = {Infinity}
-            cursor = {true}
-            omitDeletionAnimation = {true}
-    />
-          </div> */}
+          <div className="chat">
+            <TypeAnimation
+              sequence={[
+                "See your subscriptions",
+                2000,
+                "Find a Movie",
+                2000,
+                "Get Alerts",
+                2000,
+              ]}
+              wrapper="span"
+              repeat={Infinity}
+              cursor={true}
+              omitDeletionAnimation={true}
+            />
+          </div>
         </div>
       </div>
 
@@ -67,4 +68,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage
+export default Homepage;

@@ -7,6 +7,7 @@ import Dashboardpage from "./routes/dashboardpage/Dashboardpage";
 import RootLayout from "./layouts/rootLayout";
 import SignInPage from "./routes/signInPage/SignInPage";
 import SignUpPage from "./routes/signUpPage/SignUpPage";
+import Subscription from "./routes/subscription/Subscription";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
       {
         path:"/sign-up/*",
         element:<SignUpPage/>
+      },{
+        path:"/subscription",
+        element:<Subscription/>
       }
+      
    ]
   },
 ]);
