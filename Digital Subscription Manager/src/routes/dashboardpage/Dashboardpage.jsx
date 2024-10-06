@@ -27,7 +27,7 @@ const Dashboardpage = () => {
         </div>
         <div className="option">
           <img src="/magnifyingglass.jpg" alt="" />
-          <span>Find a Movie</span>
+          { <Link to="/search-page">Find a Movie</Link> }
         </div>
         <div className="option">
           <img src="/notification.png" alt="" />

@@ -8,6 +8,7 @@ import RootLayout from "./layouts/RootLayout";
 import SignInPage from "./routes/signInPage/SignInPage";
 import SignUpPage from "./routes/signUpPage/SignUpPage";
 import Subscription from "./routes/subscription/Subscription";
+import SearchPage from "./routes/movieSelect/searchPage";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
       },{
         path:"/subscription",
         element:<Subscription/>
-      }
+      },
+      {
+        path:"/search-page",
+        element:<SearchPage/>
+      },
       
    ]
   },
