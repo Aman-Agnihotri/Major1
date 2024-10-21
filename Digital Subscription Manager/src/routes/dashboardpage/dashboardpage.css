@@ -1,62 +1,154 @@
-.dashboardpage{
-    height: 100vh;
-    margin-top: 50px;
-    /* background-image: url("./dashboardBgImg.jpg");
-    opacity: 0.15; */
+/* Main container */
+.dashboardpage {
+    min-height: 100vh; /* Full screen height for scrollable content */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    padding: 20px;
+    background: transparent; /* Transparent background */
+    overflow-y: auto; /* Scrollable page */
+    backdrop-filter: blur(12px); /* Blurred background to create a subtle visual effect */
+    box-sizing: border-box; /* To include padding and borders in width/height */
+}
 
-    .options{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 50px;
-        font-family: "Amaranth", sans-serif;
-        top: 50px;
-        padding: 40px;
-        
-        .option{
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            font-weight: 300;
-            font-size: 14px;
-            border: 1px solid #9090ae;
-            padding: 40px;
-            border-radius: 40px;
-            justify-content: center;
-            align-items: center;
+/* Scrollbar customization */
+.dashboardpage::-webkit-scrollbar {
+    width: 12px; /* Scrollbar width */
+}
 
-            background-color: #c1c1c1;
-            /* box-shadow: 20px 20px 60px, inset -20px 20px #fffff40 ; */
+.dashboardpage::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); /* Track background */
+}
 
-            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
-            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+.dashboardpage::-webkit-scrollbar-thumb {
+    background: rgba(140, 43, 140, 0.8); /* Thumb color */
+    border-radius: 10px; /* Rounded edges */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Border around the thumb */
+}
 
-            span{
-                font-size: 20px;
-                font-weight: 600;
-                color: rgb(140, 43, 140);
-                cursor: pointer;
+.dashboardpage::-webkit-scrollbar-thumb:hover {
+    background: rgba(86, 49, 204, 1); /* Darker color on hover */
+}
 
-                &:hover{
-                    color: rgb(51, 26, 51);
-                }
+/* Grey container holding the options */
+.options {
+    width: 85%; /* Fixed width */
+    min-height: 350px; /* Slightly bigger than the inner cards */
+    display: flex;
+    flex-wrap: wrap; /* Allow the items to wrap */
+    align-items: flex-start; /* Align items to the upper half */
+    justify-content: center; /* Center align horizontally */
+    gap: 30px;
+    font-family: "Amaranth", sans-serif;
+    padding: 40px; /* Padding to create spacing around cards */
+    background: rgba(200, 200, 200, 0.3); /* Light grey background */
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle glass border */
+    backdrop-filter: blur(20px); /* Smooth background blur */
+    overflow-y: auto; /* Ensure the grey container is scrollable if content overflows */
+}
 
-            }
+/* Individual rectangular option cards */
+.option {
+    width: 150px; /* Increased width to make it rectangular */
+    height: 100px; /* Reduced height to make it rectangular */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the content */
+    align-items: center;
+    font-weight: bold; /* Bold text */
+    font-size: 18px; /* Slightly reduced font size */
+    padding: 15px 0; /* Equal top and bottom padding */
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2); /* Transparent with light opacity */
+    border: 2px solid transparent;
+    background-clip: padding-box; /* Ensures gradient doesn't overlap */
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    backdrop-filter: blur(15px);
+    text-align: center; /* Center the text inside */
+    color: #000000; /* Black text */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Shaded effect */
+}
 
-            img{
-                width: 50px;
-                height: 50px;
-                object-fit: cover;
-                border-radius: 50px;
-                display: flex;
-                transition: transform 0.5s ease-in-out; /* Smooth zoom with easing */
+.option:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 20px;
+    border: 2px solid rgba(86, 49, 204, 0.5); /* Glowing border on hover */
+}
 
-            }
-                &:hover img{
-                    transform: scale(1.3) ;
-                  }
-                }
-            }
-        }
+/* Improved icon background and shadow */
+.option img {
+    width: 30px; /* Icon size */
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); /* Gradient background for icons */
+    padding: 5px; /* Padding around the icon */
+    box-shadow: 0 2px 8px rgba(255, 105, 135, 0.3), 0 0 10px rgba(255, 105, 135, 0.3); /* Glowing shadow */
+}
+
+.option:hover img {
+    transform: scale(1.2); /* Slight zoom on hover */
+    box-shadow: 0 4px 10px rgba(255, 105, 135, 0.5), 0 0 15px rgba(255, 105, 135, 0.4); /* Glowing effect on hover */
+}
+
+/* Text color, size, and shading effects */
+span {
+    font-size: 16px; /* Slightly reduced font size */
+    font-weight: bold; /* Bold font */
+    color: #000000; /* Black text */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Shaded effect */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+span:hover {
+    color: #333333; /* Slightly lighter black on hover */
+}
+
+/* Glowing border effect for the options */
+.option::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3c2f66 0%, #fecfef 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.option:hover::before {
+    opacity: 1; /* Glowing border on hover */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .options {
+        flex-direction: column;
+        min-height: auto; /* Allow height to adjust for smaller screens */
+    }
+
+    .option {
+        width: 100px; /* Reduced width for smaller screens */
+        height: 80px; /* Reduced height for smaller screens */
+        padding: 10px;
+    }
+
+    .option img {
+        width: 20px;
+        height: 20px;
+    }
+
+    span {
+        font-size: 14px; /* Reduced font size for smaller screens */
+    }
+}
