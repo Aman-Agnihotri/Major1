@@ -20,15 +20,18 @@ const Dashboardpage = () => {
     <div className="dashboardpage">
     
     <div className="options">
+
         <div className="option">
           <img src="/subscription.png" alt="" />
-          {/* <Link to="/subscription">See your subscriptions</Link> */}
-          <span>See your subscriptions</span>
+          <Link to="/subscription">See your subscriptions</Link>
+          {/* <span>See your subscriptions</span> */}
         </div>
+
         <div className="option">
           <img src="/magnifyingglass.jpg" alt="" />
-          { <Link to="/search-page">Find a Movie</Link> }
+          { <Link className="navlink" to="/search-page">Find a Movie</Link> }
         </div>
+
         <div className="option">
           <img src="/notification.png" alt="" />
           <span>Get Alerts</span>

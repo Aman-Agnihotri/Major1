@@ -1,10 +1,8 @@
-.dashboardpage{
+.dashboardpage {
     height: 100vh;
     margin-top: 50px;
-    /* background-image: url("./dashboardBgImg.jpg");
-    opacity: 0.15; */
 
-    .options{
+    .options {
         width: 100%;
         display: flex;
         align-items: center;
@@ -14,7 +12,7 @@
         top: 50px;
         padding: 40px;
         
-        .option{
+        .option {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -26,37 +24,33 @@
             border-radius: 40px;
             justify-content: center;
             align-items: center;
-
             background-color: #c1c1c1;
-            /* box-shadow: 20px 20px 60px, inset -20px 20px #fffff40 ; */
-
-            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
             box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 
-            span{
+            span, a {
                 font-size: 20px;
                 font-weight: 600;
                 color: rgb(140, 43, 140);
                 cursor: pointer;
+                text-decoration: none; /* Remove underline from links */
 
-                &:hover{
+                &:hover {
                     color: rgb(51, 26, 51);
                 }
-
             }
 
-            img{
+            img {
                 width: 50px;
                 height: 50px;
                 object-fit: cover;
                 border-radius: 50px;
                 display: flex;
                 transition: transform 0.5s ease-in-out; /* Smooth zoom with easing */
-
             }
-                &:hover img{
-                    transform: scale(1.3) ;
-                  }
-                }
+
+            &:hover img {
+                transform: scale(1.3);
             }
         }
+    }
+}

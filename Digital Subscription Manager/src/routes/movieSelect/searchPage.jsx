@@ -56,7 +56,7 @@ const SearchPage = () => {
           <option value="season">Detail</option>
         </select>
         <button onClick={handleSearch} className="search-button">
-          <img src="/search-icon.png" alt="Search" />
+          <img src="/searchIcon.jpg" alt="Search" />
         </button>
       </div>
       <div className="results-container">
