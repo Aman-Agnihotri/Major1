@@ -75,9 +75,9 @@ const SearchPage = () => {
               <div className="platforms">
                 {result.streamingOptions.in?.map((option) => (
                   <a key={option.service.id} href={option.link} target="_blank" rel="noopener noreferrer">
-                    <img src={option.service.imageSet.darkThemeImage} alt={option.service.name} className="platform-icon" />
+                    <img src={option.service.imageSet.lightThemeImage} alt={option.service.name} className="platform-icon" />
                   </a>                
-                  ))}
+                ))}
               </div>
             </div>
           </div>
