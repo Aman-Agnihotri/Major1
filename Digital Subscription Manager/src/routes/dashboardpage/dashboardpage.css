@@ -47,6 +47,7 @@
 
 /* Individual rectangular option cards */
 .option {
+    cursor: pointer;
     width: 270px; /* Increased width to make it rectangular */
     height: 200px; /* Reduced height to make it rectangular */
     display: flex;
@@ -82,7 +83,7 @@
     object-fit: cover;
     border-radius: 50%;
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); /* Gradient background for icons */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); 
     padding: 5px; /* Padding around the icon */
     box-shadow: 0 2px 8px rgba(255, 105, 135, 0.3), 0 0 10px rgba(255, 105, 135, 0.3); /* Glowing shadow */
 }
@@ -99,6 +100,7 @@ span {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Shaded effect */
     cursor: pointer;
     transition: color 0.3s ease-in-out;
+    padding: 5px;
 }
 span:hover {
     color: #333333; /* Slightly lighter black on hover */

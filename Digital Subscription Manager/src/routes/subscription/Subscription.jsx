@@ -1,15 +1,37 @@
 import './subscription.css';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { gsap } from "gsap";
+import { useEffect } from 'react';
+
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const SubscriptionPage = () => {
   const subscriptions = [
-    { service: 'Netflix', price: '$15', nextBilling: '2024-11-01' },
-    { service: 'Amazon Prime', price: '$12', nextBilling: '2024-11-15' },
-    { service: 'Disney+', price: '$10', nextBilling: '2024-11-20' },
+    { service: 'Netflix', price: '₹1,245', nextBilling: '2024-11-01' },
+    { service: 'Amazon Prime', price: '₹996', nextBilling: '2024-11-15' }, 
+    { service: 'Disney+', price: '₹830', nextBilling: '2024-11-20' }, 
+    { service: 'Spotify', price: '₹747', nextBilling: '2024-12-01' }, 
+    { service: 'YouTube Premium', price: '₹1,494', nextBilling: '2024-12-10' }, 
   ];
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".animate-text",
+      { opacity: 0, y: 50 }, 
+      { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "Power3.easeInOut" } // Ending values
+    );
+  }, []);
+
+  useEffect(() => {
+    // GSAP stagger animation with adjusted properties
+    gsap.fromTo(
+      ".animate-text2",
+      { opacity: 0, y: 50 }, // Starting values
+      { opacity: 1, y: 0, duration: 2.2, stagger: 0.3, ease: "power2.inOut " } // Ending values
+    );
+  }, []);
 
   // Convert nextBilling dates into a format suitable for Chart.js
   const labels = subscriptions.map(sub => sub.nextBilling);
@@ -61,8 +83,8 @@ const SubscriptionPage = () => {
       {/* Header Section */}
       <div className="subscription-header">
         <div className="left">
-          <h1>Your Subscriptions</h1>
-          <h3>Manage all your active subscriptions in one place</h3>
+          <h1 className="animate-text">Your Subscriptions</h1>
+          <h3 className="animate-text2" >Manage all your active subscriptions in one place</h3>
         </div>
       </div>
 

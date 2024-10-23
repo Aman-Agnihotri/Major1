@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 
 const Homepage = () => {
+  
   useEffect(() => {
     // GSAP stagger animation with adjusted properties
     gsap.fromTo(

@@ -1,13 +1,18 @@
-/* subscription.css */
 .subscription-page {
     padding: 30px;
     padding-top: 40px;
+    margin-top: 20px;
     background-color: rgb(38, 36, 59);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-radius: 10px;
     height: 100vh; /* Full viewport height */
     overflow-y: auto; /* Enable vertical scroll */
     box-sizing: border-box; /* Ensure padding is included in height */
+}
+
+.animate-text2{
+    font-size: 24px;
+    color: #a668c7;
 }
 
 .subscription-header {
@@ -71,6 +76,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin-top: 10px;
 }
 
 .subscription-item {
@@ -79,14 +85,13 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; 
+    border: 1px solid white;
+    color: #a196a9;
 }
 
 .subscription-item:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 20px;
-    border: 2px solid rgba(86, 49, 204, 0.5); /* Glowing border on hover */
+    border: 1px solid rgba(244, 8, 0, 0.5); 
 }
 
 /* Chart Section */
