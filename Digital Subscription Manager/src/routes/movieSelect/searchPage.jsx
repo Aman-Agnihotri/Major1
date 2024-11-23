@@ -20,7 +20,7 @@ const SearchPage = () => {
           output_language: 'en',
         },
         headers: {
-          'x-rapidapi-key': 'your-api-key',
+          'x-rapidapi-key': 'e4a33437d2msh90f111df451fa67p1016b4jsne9a05f5a82b6',
           'x-rapidapi-host': 'streaming-availability.p.rapidapi.com',
         },
       });
@@ -68,7 +68,7 @@ const SearchPage = () => {
             <h3 className="resultTitle" onClick={() => openDialog(result)}>
               {result.title}
             </h3>
-            <img src={result.posterPath} alt={result.title} className="poster" />
+            <img src={result.imageSet.verticalPoster.w240} alt={result.title} className="poster" />          
           </div>
         ))}
       </div>
