@@ -44,7 +44,7 @@ const SearchPage = () => {
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           className="search-bar"
         />
         <select value={filter} onChange={(e) => setFilter(e.target.value)} className="filter-select">
@@ -62,7 +62,7 @@ const SearchPage = () => {
       <div className="results-container">
       {results.map((result) => (
           <div key={result.id} className="info-card">
-            <img src={result.posterPath} alt={result.title} className="poster" />
+            <img src={result.imageSet.verticalPoster.w240} alt={result.title} className="poster" />
             <div className="info">
               <h3>{result.title}</h3>
               <p>{result.overview}</p>

@@ -8,7 +8,7 @@ import RootLayout from "./layouts/RootLayout";
 import SignInPage from "./routes/signInPage/SignInPage";
 import SignUpPage from "./routes/signUpPage/SignUpPage";
 import Subscription from "./routes/subscription/Subscription";
-import SearchPage from "./routes/movieSelect/searchPage";
+import SearchPage from "./routes/searchPage/searchPage";
 
 const router = createBrowserRouter([
   {
