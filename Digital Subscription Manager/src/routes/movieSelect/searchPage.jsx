@@ -7,6 +7,7 @@ const SearchPage = () => {
   const [filter, setFilter] = useState('movie');
   const [detail, setDetail] = useState('show');
   const [results, setResults] = useState([]);
+  const [selectedMovie, setSelectedMovie]=useState(null);
 
   const handleSearch = async () => {
     try {
@@ -28,6 +29,14 @@ const SearchPage = () => {
       console.error('Error fetching data:', error);
       setResults([]);
     }
+  };
+
+  const openDialog = (movie) => {
+    setSelectedMovie(movie); // Set the movie details to display in the dialog box
+  };
+
+  const closeDialog = () => {
+    setSelectedMovie(null); // Close the dialog box
   };
 
   const handleKeyPress = (event) => {
@@ -59,30 +68,36 @@ const SearchPage = () => {
           <img src="/searchIcon.jpg" alt="Search" />
         </button>
       </div>
+      
       <div className="results-container">
-      {results.map((result) => (
+        {results.map((result) => (
           <div key={result.id} className="info-card">
-            <img src={result.posterPath} alt={result.title} className="poster" />
-            <div className="info">
-              <h3>{result.title}</h3>
-              <p>{result.overview}</p>
-              <p><strong>Release Year:</strong> {result.releaseYear}</p>
-              <p><strong>Genres:</strong> {result.genres.map(genre => genre.name).join(', ')}</p>
-              <p><strong>Directors:</strong> {result.directors.join(', ')}</p>
-              <p><strong>Cast:</strong> {result.cast.join(', ')}</p>
-              <p><strong>Rating:</strong> {result.rating}</p>
-              <p><strong>Runtime:</strong> {result.runtime} minutes</p>
-              <div className="platforms">
-                {result.streamingOptions.in?.map((option) => (
-                  <a key={option.service.id} href={option.link} target="_blank" rel="noopener noreferrer">
-                    <img src={option.service.imageSet.lightThemeImage} alt={option.service.name} className="platform-icon" />
-                  </a>                
-                ))}
-              </div>
-            </div>
+            <h3 className="resultTitle" onClick={() => openDialog(result)}>
+              {result.title}
+            </h3>
+            {/* <img src={result.posterPath} alt={result.title} className="poster" /> */}
+            <img src={result.imageSet.verticalPoster.w240} alt={result.title} className="poster" />
           </div>
         ))}
       </div>
+
+      {selectedMovie && (
+        <div className="dialog-overlay">
+          <div className="dialog-box">
+            <button className="close-button" onClick={closeDialog}>
+              &times;
+            </button>
+            <h2>{selectedMovie.title}</h2>
+            <p><strong>Overview:</strong> {selectedMovie.overview}</p>
+            <p><strong>Release Year:</strong> {selectedMovie.releaseYear}</p>
+            <p><strong>Genres:</strong> {selectedMovie.genres.map(genre => genre.name).join(', ')}</p>
+            <p><strong>Directors:</strong> {selectedMovie.directors.join(', ')}</p>
+            <p><strong>Cast:</strong> {selectedMovie.cast.join(', ')}</p>
+            <p><strong>Rating:</strong> {selectedMovie.rating}</p>
+            <p><strong>Runtime:</strong> {selectedMovie.runtime} minutes</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
