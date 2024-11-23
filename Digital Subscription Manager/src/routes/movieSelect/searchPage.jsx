@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import './searchPage.css';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('movie');
   const [detail, setDetail] = useState('show');
   const [results, setResults] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null); // State for the dialog box content
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleSearch = async () => {
     try {
@@ -32,11 +33,11 @@ const SearchPage = () => {
   };
 
   const openDialog = (movie) => {
-    setSelectedMovie(movie); // Set the movie details to display in the dialog box
+    setSelectedMovie(movie);
   };
 
   const closeDialog = () => {
-    setSelectedMovie(null); // Close the dialog box
+    setSelectedMovie(null);
   };
 
   return (
@@ -64,12 +65,18 @@ const SearchPage = () => {
 
       <div className="results-container">
         {results.map((result) => (
-          <div key={result.id} className="info-card">
+          <motion.div
+            key={result.id}
+            className="info-card"
+            whileInView={{ opacity: 1, x: 0 }} // Animate to opacity 1 and x=0 when in view
+            initial={{ opacity: 0, x: -100 }} // Start hidden and positioned to the left
+            transition={{ duration: 0.5, ease: 'easeOut' }} // Animation settings
+          >
             <h3 className="resultTitle" onClick={() => openDialog(result)}>
               {result.title}
             </h3>
-            <img src={result.imageSet.verticalPoster.w240} alt={result.title} className="poster" />          
-          </div>
+            <img src={result.imageSet?.verticalPoster?.w240 || ''} alt={result.title} className="poster" />
+          </motion.div>
         ))}
       </div>
 
@@ -82,7 +89,7 @@ const SearchPage = () => {
             <h2>{selectedMovie.title}</h2>
             <p><strong>Overview:</strong> {selectedMovie.overview}</p>
             <p><strong>Release Year:</strong> {selectedMovie.releaseYear}</p>
-            <p><strong>Genres:</strong> {selectedMovie.genres.map(genre => genre.name).join(', ')}</p>
+            <p><strong>Genres:</strong> {selectedMovie.genres.map((genre) => genre.name).join(', ')}</p>
             <p><strong>Directors:</strong> {selectedMovie.directors.join(', ')}</p>
             <p><strong>Cast:</strong> {selectedMovie.cast.join(', ')}</p>
             <p><strong>Rating:</strong> {selectedMovie.rating}</p>
