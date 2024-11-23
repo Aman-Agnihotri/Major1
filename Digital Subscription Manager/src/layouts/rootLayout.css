@@ -20,6 +20,10 @@
                 height: 40px;
                 border-radius: 50%;
             }
+
+            span{
+                color: #FFD700;
+            }
         }
     }
 

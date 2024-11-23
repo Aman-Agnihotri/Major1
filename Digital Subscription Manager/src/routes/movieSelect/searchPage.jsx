@@ -53,12 +53,12 @@ const SearchPage = () => {
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           className="search-bar"
         />
         <select value={filter} onChange={(e) => setFilter(e.target.value)} className="filter-select">
           <option value="movie">Movie</option>
-          <option value="tv">TV Show</option>
+          <option value="series">TV Show</option>
         </select>
         <select value={detail} onChange={(e) => setDetail(e.target.value)} className="detail-select">
           <option value="show">Minimal</option>
@@ -72,11 +72,25 @@ const SearchPage = () => {
       <div className="results-container">
         {results.map((result) => (
           <div key={result.id} className="info-card">
-            <h3 className="resultTitle" onClick={() => openDialog(result)}>
-              {result.title}
-            </h3>
-            {/* <img src={result.posterPath} alt={result.title} className="poster" /> */}
-            <img src={result.imageSet.verticalPoster.w240} alt={result.title} className="poster" />
+          <img src={result.imageSet.verticalPoster.w360} alt={result.title} className="poster" />
+            <div className="info">
+              <h3>{result.title}</h3>
+              <p>{result.overview}</p>
+              <p><strong>Release Year:</strong> {result.releaseYear}</p>
+              <p><strong>Genres:</strong> {result.genres.map(genre => genre.name).join(', ')}</p>
+              <p><strong>{filter === 'movie' ? 'Director: ' : 'Creator: '}</strong> { filter === 'movie' ? result.directors.join(', ') : result.creators.join(', ')}</p>
+              <p><strong>Cast:</strong> {result.cast.join(', ')}</p>
+              <p><strong>Rating:</strong> {result.rating}</p>
+              <p><strong>Runtime:</strong> {result.runtime} minutes</p>
+              <div className="platforms">
+                {result.streamingOptions.in?.map((option) => (
+                  <a key={option.service.id} href={option.link} target="_blank" rel="noopener noreferrer">
+                    <img src={option.service.imageSet.lightThemeImage} alt={option.service.name} className="platform-icon" />
+                  </a>                
+                ))}
+              </div>
+            </div>
+
           </div>
         ))}
       </div>
