@@ -24,7 +24,13 @@
             span{
                 color: #FFD700;
             }
+
+            .appname{
+                font-family: "Bungee Spice", sans-serif;
+                font-weight: bolder;
+            }
         }
+
     }
 
     main{

@@ -9,8 +9,10 @@ const SearchPage = () => {
   const [detail, setDetail] = useState('show');
   const [results, setResults] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleSearch = async () => {
+    setLoading(true); // Set loading to true before the request
     try {
       const response = await axios.get('https://streaming-availability.p.rapidapi.com/shows/search/title', {
         params: {
@@ -29,6 +31,8 @@ const SearchPage = () => {
     } catch (error) {
       console.error('Error fetching data:', error);
       setResults([]);
+    } finally {
+      setLoading(false); // Set loading to false after the request completes
     }
   };
 
@@ -63,22 +67,26 @@ const SearchPage = () => {
         </button>
       </div>
 
-      <div className="results-container">
-        {results.map((result) => (
-          <motion.div
-            key={result.id}
-            className="info-card"
-            whileInView={{ opacity: 1, x: 0 }} // Animate to opacity 1 and x=0 when in view
-            initial={{ opacity: 0, x: -100 }} // Start hidden and positioned to the left
-            transition={{ duration: 0.5, ease: 'easeOut' }} // Animation settings
-          >
-            <h3 className="resultTitle" onClick={() => openDialog(result)}>
-              {result.title}
-            </h3>
-            <img src={result.imageSet?.verticalPoster?.w240 || ''} alt={result.title} className="poster" />
-          </motion.div>
-        ))}
-      </div>
+      {loading ? ( // Show the loading message or spinner when loading
+        <div className="loading-message">Searching...</div>
+      ) : (
+        <div className="results-container">
+          {results.map((result) => (
+            <motion.div
+              key={result.id}
+              className="info-card"
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+            >
+              <h3 className="resultTitle" onClick={() => openDialog(result)}>
+                {result.title}
+              </h3>
+              <img src={result.imageSet?.verticalPoster?.w240 || ''} alt={result.title} className="poster" />
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       {selectedMovie && (
         <div className="dialog-overlay">

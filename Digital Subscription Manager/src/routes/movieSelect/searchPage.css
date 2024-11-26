@@ -207,3 +207,20 @@
   line-height: 1.5;
   color: #bbb;
 }
+
+.loading-message {
+  font-size: 20px;
+  color: #f4a261; /* Bright color to stand out */
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeInOut 1s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}

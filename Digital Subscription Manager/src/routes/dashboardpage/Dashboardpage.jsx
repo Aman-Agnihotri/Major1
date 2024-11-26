@@ -24,7 +24,6 @@ const Dashboardpage = () => {
         <div className="option">
           <img src="/subscription.png" alt="" />
           <Link to="/subscription">See your subscriptions</Link>
-          {/* <span>See your subscriptions</span> */}
         </div>
 
         <div className="option">

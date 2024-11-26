@@ -1,144 +1,131 @@
 /* Main container */
 .dashboardpage {
-    min-height: 100vh; /* Full screen height for scrollable content */
+    min-height: 100vh; /* Full screen height */
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items to the top */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     padding: 20px;
-    background: transparent; /* Transparent background */
-    overflow-y: auto; /* Scrollable page */
-    backdrop-filter: blur(12px); /* Blurred background to create a subtle visual effect */
-    box-sizing: border-box; /* To include padding and borders in width/height */
+    /* background: linear-gradient(135deg, #1a1a2e, #16213e);  */
+    font-family: "Poppins", sans-serif; /* Clean and modern font */
+    color: #ffffff; /* Light text for contrast */
 }
-/* Scrollbar customization */
+
+/* Custom Scrollbar */
 .dashboardpage::-webkit-scrollbar {
-    width: 12px; /* Scrollbar width */
+    width: 10px;
 }
 .dashboardpage::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.2); /* Track background */
+    background: #0f0f1f;
 }
 .dashboardpage::-webkit-scrollbar-thumb {
-    background: rgba(140, 43, 140, 0.8); /* Thumb color */
-    border-radius: 10px; /* Rounded edges */
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Border around the thumb */
+    background: #4e4e8b; /* Subtle dark purple */
+    border-radius: 10px;
 }
-
 .dashboardpage::-webkit-scrollbar-thumb:hover {
-    background: rgba(86, 49, 204, 1); /* Darker color on hover */
-}
-/* Grey container holding the options */
-.options {
-    width: 85%; /* Fixed width */
-    min-height: 350px; /* Slightly bigger than the inner cards */
-    display: flex;
-    flex-wrap: wrap; /* Allow the items to wrap */
-    align-items: flex-start; /* Align items to the upper half */
-    justify-content: center; /* Center align horizontally */
-    gap: 30px;
-    font-family: "Amaranth", sans-serif;
-    padding: 40px; /* Padding to create spacing around cards */
-    background: rgba(200, 200, 200, 0.3); /* Light grey background */
-    border-radius: 30px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle glass border */
-    backdrop-filter: blur(20px); /* Smooth background blur */
-    overflow-y: auto; /* Ensure the grey container is scrollable if content overflows */
+    background: #3e3e73; /* Darker purple on hover */
 }
 
-/* Individual rectangular option cards */
+/* Centered options container */
+.options {
+    width: 90%;
+    max-width: 800px; /* Set a maximum width for better layout */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px;
+    background: rgba(23, 23, 35, 0.9); /* Dark semi-transparent background */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+    backdrop-filter: blur(8px); /* Slight blur for a glassy effect */
+}
+
+/* Individual option cards */
 .option {
-    cursor: pointer;
-    width: 270px; /* Increased width to make it rectangular */
-    height: 200px; /* Reduced height to make it rectangular */
+    width: 280px;
+    height: 240px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically center the content */
+    justify-content: center;
     align-items: center;
-    font-weight: bold; /* Bold text */
-    font-size: 20px; /* Slightly reduced font size */
-    padding: 15px 0; /* Equal top and bottom padding */
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.2); /* Transparent with light opacity */
-    border: 2px solid transparent;
-    background-clip: padding-box; /* Ensures gradient doesn't overlap */
-    position: relative;
-    transition: all 0.4s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    backdrop-filter: blur(15px);
-    text-align: center; /* Center the text inside */
-    color: #000000; /* Black text */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Shaded effect */
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #2c2c54, #23234a); /* Deep gradient */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Dark shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    padding: 20px;
+    cursor: pointer;
 }
 
 .option:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 20px;
-    border: 2px solid rgba(86, 49, 204, 0.5); /* Glowing border on hover */
-}
-/* Improved icon background and shadow */
-.option img {
-    width: 50px; /* Icon size */
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); 
-    padding: 5px; /* Padding around the icon */
-    box-shadow: 0 2px 8px rgba(255, 105, 135, 0.3), 0 0 10px rgba(255, 105, 135, 0.3); /* Glowing shadow */
-}
-.option:hover img {
-    transform: scale(1.2); /* Slight zoom on hover */
-    box-shadow: 0 4px 10px rgba(255, 105, 135, 0.5), 0 0 15px rgba(255, 105, 135, 0.4); /* Glowing effect on hover */
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, #3e3e73, #2c2c54); /* Slightly lighter on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
 }
 
-/* Text color, size, and shading effects */
-span {
-    font-size: 20px; /* Slightly reduced font size */
-    font-weight: bold; /* Bold font */
-    color: #000000; /* Black text */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Shaded effect */
-    cursor: pointer;
-    transition: color 0.3s ease-in-out;
-    padding: 5px;
+/* Icon styles */
+.option img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: #262640; /* Dark blue background for icons */
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(78, 78, 139, 0.4); /* Subtle blue shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-span:hover {
-    color: #333333; /* Slightly lighter black on hover */
+.option:hover img {
+    transform: scale(1.2); /* Slight zoom */
+    box-shadow: 0 6px 14px rgba(78, 78, 139, 0.6); /* More pronounced shadow */
 }
-/* Glowing border effect for the options */
+
+/* Text styles */
+.option a, .option span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f0f0f0; /* Light grey for text */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.option:hover a, .option:hover span {
+    color: #ffd369; /* Golden accent */
+}
+
+/* Glowing border effect */
 .option::before {
     content: "";
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #3c2f66 0%, #fecfef 100%);
-    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffd369, #4e4e8b);
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.3s ease;
+    z-index: -1; /* Send the glowing border behind the card */
 }
 .option:hover::before {
-    opacity: 1; /* Glowing border on hover */
+    opacity: 0.7;
 }
 
-/* Media query for responsiveness */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .options {
         flex-direction: column;
-        min-height: auto; /* Allow height to adjust for smaller screens */
+        gap: 20px;
+        padding: 20px;
     }
     .option {
-        width: 100px; /* Reduced width for smaller screens */
-        height: 80px; /* Reduced height for smaller screens */
-        padding: 10px;
+        width: 100%;
+        height: auto;
+        padding: 15px;
     }
     .option img {
-        width: 20px;
-        height: 20px;
+        width: 50px;
+        height: 50px;
     }
-    span {
-        font-size: 14px; /* Reduced font size for smaller screens */
+    .option a, .option span {
+        font-size: 16px;
     }
 }
