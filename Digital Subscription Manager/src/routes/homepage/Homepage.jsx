@@ -21,8 +21,8 @@ const Homepage = () => {
       <div className="left">
         {/* Add 'animate-text' class to the h1, h2, h3 for GSAP targeting */}
         <h1 className="animate-text">StreamManage</h1>
-        <h2 className="animate-text">Effortless Subscription Management, All in One Place</h2>
-        <h3 className="animate-text">
+        <h2 className="animate-text" id="tagline">Effortless Subscription Management, All in One Place</h2>
+        <h3 className="animate-text" id="para">
           Manage your digital subscriptions with ease. Streamline your
           entertainment choices, track payments, and get personalized content
           suggestions—all from a single platform.
