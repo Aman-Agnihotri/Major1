@@ -6,9 +6,8 @@ import { motion } from 'framer-motion';
 const SearchPage = () => {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('movie');
-  const [detail, setDetail] = useState('show');
   const [results, setResults] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedResult, setSelectedResult] = useState(null);
   const [loading, setLoading] = useState(false); // Loading state
 
   const handleSearch = async () => {
@@ -19,7 +18,7 @@ const SearchPage = () => {
           title: query,
           country: 'in',
           show_type: filter,
-          series_granularity: detail,
+          series_granularity: 'season',
           output_language: 'en',
         },
         headers: {
@@ -37,11 +36,11 @@ const SearchPage = () => {
   };
 
   const openDialog = (movie) => {
-    setSelectedMovie(movie);
+    setSelectedResult(movie);
   };
 
   const closeDialog = () => {
-    setSelectedMovie(null);
+    setSelectedResult(null);
   };
 
   return (
@@ -53,14 +52,11 @@ const SearchPage = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="search-bar"
+          onKeyDown={(e) => { if (e.key === 'Enter') handleSearch(); }}
         />
         <select value={filter} onChange={(e) => setFilter(e.target.value)} className="filter-select">
           <option value="movie">Movie</option>
-          <option value="tv">TV Show</option>
-        </select>
-        <select value={detail} onChange={(e) => setDetail(e.target.value)} className="detail-select">
-          <option value="show">Minimal</option>
-          <option value="season">Detail</option>
+          <option value="series">TV Show</option>
         </select>
         <button onClick={handleSearch} className="search-button">
           <img src="/searchIcon.jpg" alt="Search" />
@@ -79,29 +75,31 @@ const SearchPage = () => {
               initial={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <h3 className="resultTitle" onClick={() => openDialog(result)}>
+              <button className="resultTitle" onClick={() => openDialog(result)} onKeyDown={(e) => { if (e.key === 'Enter') openDialog(result); }}>
                 {result.title}
-              </h3>
-              <img src={result.imageSet?.verticalPoster?.w240 || ''} alt={result.title} className="poster" />
+              </button>
+              <button className="poster-button" onClick={() => openDialog(result)} onKeyDown={(e) => { if (e.key === 'Enter') openDialog(result); }}>
+                <img src={result.imageSet?.verticalPoster?.w480 || ''} alt={result.title} className="poster" />
+              </button>
             </motion.div>
           ))}
         </div>
       )}
 
-      {selectedMovie && (
+      {selectedResult && (
         <div className="dialog-overlay">
           <div className="dialog-box">
             <button className="close-button" onClick={closeDialog}>
               &times;
             </button>
-            <h2>{selectedMovie.title}</h2>
-            <p><strong>Overview:</strong> {selectedMovie.overview}</p>
-            <p><strong>Release Year:</strong> {selectedMovie.releaseYear}</p>
-            <p><strong>Genres:</strong> {selectedMovie.genres.map((genre) => genre.name).join(', ')}</p>
-            <p><strong>Directors:</strong> {selectedMovie.directors.join(', ')}</p>
-            <p><strong>Cast:</strong> {selectedMovie.cast.join(', ')}</p>
-            <p><strong>Rating:</strong> {selectedMovie.rating}</p>
-            <p><strong>Runtime:</strong> {selectedMovie.runtime} minutes</p>
+            <h2>{selectedResult.title}</h2>
+            <p><strong>Overview:</strong> {selectedResult.overview}</p>
+            <p><strong>Release Year:</strong> {selectedResult.releaseYear}</p>
+            <p><strong>Genres:</strong> {selectedResult.genres.map((genre) => genre.name).join(', ')}</p>
+            <p><strong>{filter === 'movie' ? 'Director: ' : 'Creator: '}</strong> { filter === 'movie' ? selectedResult.directors.join(', ') : selectedResult.creators.join(', ')}</p>
+            <p><strong>Cast:</strong> {selectedResult.cast.join(', ')}</p>
+            <p><strong>Rating:</strong> {selectedResult.rating}</p>
+            <p><strong>Runtime:</strong> {selectedResult.runtime} minutes</p>
           </div>
         </div>
       )}

@@ -4,8 +4,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  /* background-color: #1e1e2f; */
-  color: #fff; /* White text for readability */
+  color: #fff;
 }
 
 .search-bar-container {
@@ -82,6 +81,8 @@
 .resultTitle {
   cursor: pointer;
   color: #f4a261;
+  background-color: transparent;
+  border: none;
   font-size: 20px;
   margin-bottom: 10px;
   transition: color 0.3s ease;
@@ -107,6 +108,12 @@
 .info-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 -1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.poster-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .poster {
