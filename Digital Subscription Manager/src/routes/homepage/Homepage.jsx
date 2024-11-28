@@ -7,14 +7,14 @@ import { gsap } from "gsap";
 const Homepage = () => {
   
   useEffect(() => {
-    // GSAP stagger animation with adjusted properties
+    // GSAP animation for text
     gsap.fromTo(
       ".animate-text",
-      { opacity: 0, y: 50 }, // Starting values
-      { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power4.in " } // Ending values
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power4.in" }
     );
   }, []);
-
+  
   return (
     <div className="homepage">
       <img src="/bg3.jpg" className="orbital" alt="" />

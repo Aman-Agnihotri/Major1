@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     gap: 100px;
-    height: 100vh; /* Full height */
+    height: 100vh; 
     padding: 20px;
     position: relative;
   
@@ -20,7 +20,7 @@
     opacity: 0.15;
     animation: 100s linear infinite rotateOrbital;
     z-index: -1;
-    width: 100%; /* Full width for responsiveness */
+    width: 100%; 
   }
   
   .left {
@@ -41,18 +41,18 @@
       font-family: Montserrat;
   
       @media screen and (max-width: 1280px) {
-        font-size: 64px; /* Adjust for smaller screens */
+        font-size: 64px; 
       }
   
       @media screen and (max-width: 768px) {
-        font-size: 48px; /* Further reduce for mobile */
+        font-size: 48px; 
       }
     }
   
     h3 {
       font-weight: 400;
       max-width: 75%;
-      font-size: 18px; /* Reduce font size */
+      font-size: 18px;
       line-height: 1.6;
   
       @media screen and (max-width: 1024px) {
@@ -60,7 +60,7 @@
       }
   
       @media screen and (max-width: 768px) {
-        font-size: 16px; /* Further reduction for mobile */
+        font-size: 16px;
       }
     }
   
@@ -83,7 +83,7 @@
       font-size: 24px;
   
       @media screen and (max-width: 768px) {
-        font-size: 20px; /* Adjust tagline size for mobile */
+        font-size: 20px; 
       }
     }
   
@@ -105,12 +105,12 @@
       background-color: #140e2d;
       border-radius: 50px;
       width: 80%;
-      max-width: 500px; /* Limit max width for responsiveness */
+      max-width: 500px; 
       height: auto;
       position: relative;
   
       @media screen and (max-width: 768px) {
-        max-width: 300px; /* Reduce size for mobile */
+        max-width: 300px; 
       }
   
       .bgContainer {
@@ -139,7 +139,7 @@
         animation: 3s ease-in-out infinite alternate ottImageAnimate;
   
         @media screen and (max-width: 768px) {
-          width: 80%; /* Reduce size for smaller screens */
+          width: 80%; 
         }
       }
   
@@ -155,7 +155,7 @@
         border-radius: 10px;
   
         @media screen and (max-width: 1024px) {
-          display: none; /* Hide chat for smaller screens */
+          display: none; 
         }
       }
     }
@@ -221,7 +221,7 @@
     }
   }
   
-  /* Additional Media Queries */
+
   @media screen and (max-width: 1280px) {
     .homepage {
       gap: 50px;
