@@ -59,7 +59,7 @@ const SearchPage = () => {
           <option value="series">TV Show</option>
         </select>
         <button onClick={handleSearch} className="search-button">
-          <img src="/searchIcon.jpg" alt="Search" />
+          <img src="/search-icon.png" alt="Search" />
         </button>
       </div>
 
