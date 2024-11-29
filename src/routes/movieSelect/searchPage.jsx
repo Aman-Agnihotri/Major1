@@ -13,7 +13,7 @@ const SearchPage = () => {
   const handleSearch = async () => {
     setLoading(true); // Set loading to true before the request
     try {
-      const response = await axios.get('https://streaming-availability.p.rapidapi.com/shows/search/title', {
+      const response = await axios.get('https://' + import.meta.env.VITE_X_RAPIDAPI_HOST + '/shows/search/title', {
         params: {
           title: query,
           country: 'in',
@@ -22,8 +22,8 @@ const SearchPage = () => {
           output_language: 'en',
         },
         headers: {
-          'x-rapidapi-key': 'e4a33437d2msh90f111df451fa67p1016b4jsne9a05f5a82b6',
-          'x-rapidapi-host': 'streaming-availability.p.rapidapi.com',
+          'x-rapidapi-key': import.meta.env.VITE_X_RAPIDAPI_KEY,
+          'x-rapidapi-host': import.meta.env.VITE_X_RAPIDAPI_HOST,
         },
       });
       setResults(response.data || []);

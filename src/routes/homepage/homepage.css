@@ -5,6 +5,7 @@
     height: 100vh; 
     padding: 20px;
     position: relative;
+    overflow-y: scroll;
   
     @media screen and (max-width: 1024px) {
       flex-direction: column;
