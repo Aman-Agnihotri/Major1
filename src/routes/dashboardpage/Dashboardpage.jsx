@@ -1,43 +1,40 @@
-import {Link, useNavigate } from "react-router-dom";
-import "./dashboardpage.css"
-import {useAuth} from "@clerk/clerk-react";
-import { useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./dashboardpage.css";
+import { useAuth } from "@clerk/clerk-react";
+import { useEffect } from "react";
 
 const Dashboardpage = () => {
-
-  const {userId, isLoaded} = useAuth();
+  const { userId, isLoaded } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    if(isLoaded && !userId){
+  useEffect(() => {
+    if (isLoaded && !userId) {
       navigate("/sign-in");
     }
-  },[isLoaded, userId, navigate]);
+  }, [isLoaded, userId, navigate]);
 
-  if(!isLoaded) return <div>Loading....</div>;
+  if (!isLoaded) return <div>Loading....</div>;
 
   return (
     <div className="dashboardpage">
-    
-    <div className="options">
+      <div className="options">
+        <Link className="option" to="/subscription">
+          <img src="/subscription.png" alt="Subscription" />
+          <span>See your subscriptions</span>
+        </Link>
 
-        <div className="option">
-          <img src="/subscription.png" alt="" />
-          <Link to="/subscription">See your subscriptions</Link>
-        </div>
+        <Link className="option" to="/search-page">
+          <img src="/magnifyingglass.jpg" alt="Search" />
+          <span>Find a Movie</span>
+        </Link>
 
-        <div className="option">
-          <img src="/magnifyingglass.jpg" alt="" />
-          { <Link className="navlink" to="/search-page">Find a Movie</Link> }
-        </div>
-
-        <div className="option">
-          <img src="/notification.png" alt="" />
+        <Link className="option" to="/alerts">
+          <img src="/notification.png" alt="Alerts" />
           <span>Get Alerts</span>
-        </div>
+        </Link>
       </div>
-     </div>  
-  )
-}
+    </div>
+  );
+};
 
-export default Dashboardpage
+export default Dashboardpage;

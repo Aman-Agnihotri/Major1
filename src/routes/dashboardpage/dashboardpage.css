@@ -1,131 +1,78 @@
-/* Main container */
 .dashboardpage {
-    min-height: 100vh; /* Full screen height */
+    min-height: 100vh;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    /* background: linear-gradient(135deg, #1a1a2e, #16213e);  */
-    font-family: "Poppins", sans-serif; /* Clean and modern font */
-    color: #ffffff; /* Light text for contrast */
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
 }
 
-/* Custom Scrollbar */
-.dashboardpage::-webkit-scrollbar {
-    width: 10px;
-}
-.dashboardpage::-webkit-scrollbar-track {
-    background: #0f0f1f;
-}
-.dashboardpage::-webkit-scrollbar-thumb {
-    background: #4e4e8b; /* Subtle dark purple */
-    border-radius: 10px;
-}
-.dashboardpage::-webkit-scrollbar-thumb:hover {
-    background: #3e3e73; /* Darker purple on hover */
-}
-
-/* Centered options container */
 .options {
-    width: 90%;
-    max-width: 800px; /* Set a maximum width for better layout */
+    width: 100%;
+    max-width: 600px; /* Adjusted for better fit on small screens */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
-    padding: 30px;
-    background: rgba(23, 23, 35, 0.9); /* Dark semi-transparent background */
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
-    backdrop-filter: blur(8px); /* Slight blur for a glassy effect */
+    gap: 20px; /* Reduce gap for small screens */
+    padding: 20px;
+    background: rgba(23, 23, 35, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
 }
 
-/* Individual option cards */
 .option {
-    width: 280px;
-    height: 240px;
+    width: 100%; /* Full width on small screens */
+    max-width: 300px; /* Keep some flexibility for medium screens */
+    height: auto; /* Allow height to adjust based on content */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #2c2c54, #23234a); /* Deep gradient */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Dark shadow */
+    border-radius: 15px;
+    background: linear-gradient(135deg, #2c2c54, #23234a);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    padding: 20px;
+    padding: 15px;
     cursor: pointer;
 }
 
-.option:hover {
-    transform: translateY(-10px);
-    background: linear-gradient(135deg, #3e3e73, #2c2c54); /* Slightly lighter on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
-}
-
-/* Icon styles */
 .option img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
+    width: 50px; /* Smaller icon size for phones */
+    height: 50px;
+    margin-bottom: 10px;
     border-radius: 50%;
-    background: #262640; /* Dark blue background for icons */
+    background: #262640;
     padding: 10px;
-    box-shadow: 0 4px 10px rgba(78, 78, 139, 0.4); /* Subtle blue shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.option:hover img {
-    transform: scale(1.2); /* Slight zoom */
-    box-shadow: 0 6px 14px rgba(78, 78, 139, 0.6); /* More pronounced shadow */
+    box-shadow: 0 4px 8px rgba(78, 78, 139, 0.4);
 }
 
-/* Text styles */
-.option a, .option span {
-    font-size: 18px;
-    font-weight: 600;
-    color: #f0f0f0; /* Light grey for text */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.option:hover a, .option:hover span {
-    color: #ffd369; /* Golden accent */
+.option span {
+    font-size: 14px; /* Smaller text for phones */
+    font-weight: 500;
+    color: #f0f0f0;
 }
 
-/* Glowing border effect */
-.option::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #ffd369, #4e4e8b);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1; /* Send the glowing border behind the card */
-}
-.option:hover::before {
-    opacity: 0.7;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .options {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
+        gap: 15px; /* Reduced gap */
+        padding: 10px;
     }
+
     .option {
-        width: 100%;
-        height: auto;
-        padding: 15px;
+        width: 100%; /* Full width */
+        height: auto; /* Allow flexibility */
+        padding: 10px;
     }
+
     .option img {
-        width: 50px;
-        height: 50px;
+        width: 40px; /* Adjusted icon size */
+        height: 40px;
     }
-    .option a, .option span {
-        font-size: 16px;
+
+    .option span {
+        font-size: 12px; /* Smaller text for phones */
     }
 }

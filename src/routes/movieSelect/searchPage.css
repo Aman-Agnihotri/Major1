@@ -1,169 +1,138 @@
+/* Main container */
 .search-page {
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  background-color: #121212;
   color: #fff;
 }
 
+/* Search bar and filter */
 .search-bar-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
   gap: 10px;
+  width: 100%;
 }
 
 .search-bar {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   padding: 10px;
   border-radius: 10px;
-  outline: none;
   border: 1px solid #8c2b8c;
-  font-size: 16px;
   background-color: #2e2e44;
   color: #fff;
 }
 
-.filter-select, .detail-select {
-  padding: 8px;
-  border-radius: 8px;
+.filter-select {
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid #8c2b8c;
-  font-size: 16px;
   background-color: #2e2e44;
   color: #fff;
 }
 
 .search-button {
-  border: none;
+  padding: 10px;
   border-radius: 50%;
-  padding: 3px;
+  background-color: #8c2b8c;
+  border: none;
   cursor: pointer;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #8c2b8c;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  justify-content: center;
 }
 
 .search-button img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  font-size: 20px;
+  width: 20px;
+  height: 20px;
 }
 
-.search-button:hover {
-  background-color: #6a1a6a;
-}
-
-.search-button:hover img {
-  transform: scale(1.1);
-}
-
+/* Results container */
 .results-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
-  justify-content: center;
-  padding: 20px;
+  width: 100%;
   max-width: 1200px;
-  width: 100%;
-  height: 500px;
-  overflow-y: auto;
-  border: 1px solid #444;
-  border-radius: 10px;
-  background-color: #2e2e44;
-}
-
-.resultTitle {
-  cursor: pointer;
-  color: #f4a261;
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  margin-bottom: 10px;
-  transition: color 0.3s ease;
-}
-
-.resultTitle:hover {
-  color: #f77f00;
-}
-
-.info-card {
-  width: 320px;
-  background: linear-gradient(145deg, #2e2e44, #3c3c5b);
-  border: 1px solid #444;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  line-height: 1.5;
-  color: #ddd;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 -1px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.info-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 -1px 6px rgba(0, 0, 0, 0.1);
-}
-
-.poster-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.poster {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.poster:hover {
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
-}
-
-.platforms {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
   margin-top: 20px;
 }
 
-.platform-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+/* Info card */
+.info-card {
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
-.platform-icon:hover {
-  transform: scale(1.2);
+/* Poster container */
+.poster-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info h3 {
-  font-size: 20px;
-  color: #f4a261;
-  margin-bottom: 10px;
+.poster-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
-.info p {
-  margin: 5px 0;
+/* Poster image */
+.poster {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Adjust poster size for phones */
+@media (max-width: 768px) {
+  .poster {
+    max-height: 200px;
+  }
+}
+
+/* Movie name button (on top of the poster) */
+.result-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 8px 12px;
   font-size: 14px;
-  color: #bbb;
-}
-
-.info strong {
+  font-weight: bold;
   color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  z-index: 10;
 }
 
+.result-title:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.result-title:focus {
+  outline: 2px solid #ffd369;
+  outline-offset: 2px;
+}
+
+/* Dialog overlay */
 .dialog-overlay {
   position: fixed;
   top: 0;
@@ -179,56 +148,24 @@
 
 .dialog-box {
   background-color: #1e1e2f;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
   width: 90%;
-  position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
   color: #fff;
 }
 
 .close-button {
   position: absolute;
   top: 10px;
-  right: 15px;
-  font-size: 24px;
+  right: 10px;
   background: none;
   border: none;
-  cursor: pointer;
+  font-size: 24px;
   color: #f77f00;
-  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .close-button:hover {
   color: #f4a261;
-}
-
-.dialog-box h2 {
-  margin-top: 0;
-  color: #f4a261;
-  font-size: 24px;
-}
-
-.dialog-box p {
-  margin: 8px 0;
-  line-height: 1.5;
-  color: #bbb;
-}
-
-.loading-message {
-  font-size: 20px;
-  color: #f4a261; /* Bright color to stand out */
-  text-align: center;
-  margin-top: 20px;
-  animation: fadeInOut 1s ease-in-out infinite;
-}
-
-@keyframes fadeInOut {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
 }

@@ -1,153 +1,139 @@
 .subscription-page {
-    padding: 30px;
-    padding-top: 40px;
-    margin-top: 20px;
+    padding: 20px;
+    margin: 20px auto;
     background-color: rgb(38, 36, 59);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-radius: 10px;
-    height: 100vh; /* Full viewport height */
+    min-height: 100vh; /* Full viewport height */
     overflow-y: auto; /* Enable vertical scroll */
     box-sizing: border-box; /* Ensure padding is included in height */
-}
-
-.animate-text2{
-    font-size: 24px;
-    color: #a668c7;
+    max-width: 1200px; /* Limit page width */
+    color: #fff;
 }
 
 .subscription-header {
     display: flex;
+    flex-direction: column; /* Stack header items for smaller screens */
     align-items: center;
-    gap: 100px;
-
-    .left {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        text-align: center;
-
-        h1{
-            font-size: 90px;
-            background: rgb(0,0,0);
-            background-image: linear-gradient(to right top, #c34a36, #bf2e4c, #b11864, #96187b, #6b288f);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-
-            @media screen and (max-width: 1280px) {
-                font-size: 64px;
-            }
-        }
-
-        h3{
-            font-weight: 400;
-            max-width: 75%;
-
-            @media screen and (max-width: 1024px) {
-                max-width: 100%;
-            }
-        }
-
-        a{
-            padding: 15px 25px;
-            background-color: #6B288F;
-            color: white;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-top: 20px;
-
-            &:hover{
-                color: #6B288F;
-                background-color: white;
-    
-            }
-        }
-    }
+    text-align: center;
+    gap: 20px;
 }
+
+.subscription-header .left h1 {
+    font-size: 3rem;
+    background: linear-gradient(to right top, #c34a36, #bf2e4c, #b11864, #96187b, #6b288f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+
+.subscription-header .left h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 90%;
+    color: #a668c7;
+}
+
 /* Subscriptions Section */
-.subscriptions-section, .billing-cycle-section, .payu-section {
-    margin-top: 50px;
+.subscriptions-section {
+    margin-top: 40px;
+}
+
+.subscriptions-section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #a668c7;
 }
 
 .subscriptions-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    margin-top: 10px;
 }
 
 .subscription-item {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.15);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    transition: transform 0.3s ease; 
-    border: 1px solid white;
-    color: #a196a9;
+    border: 1px solid #6b288f;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
 }
-
-/* .subscription-item::after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    translate: -50% -50%;
-    top: 50%;
-    top: 50%;
-    z-index: -1;
-    padding: 3px;
-    background: conic-gradient(
-        from 0deg,
-        transparent 70%,
-        #ff4d4d, 
-        #ffcc00, 
-        #33cc33, 
-        #33cccc, 
-        #3366ff, 
-        #cc33ff, 
-        #ff4d4d 
-    );
-}
-
-@keyframes rotate{
-    from{
-        --direction: 0deg;
-    }
-
-    from{
-        --direction: 360deg;
-    }
-}
-
-.subscription-item::before{
-    filter: blur(0.5);
-    opacity: 0.8;
-} */
 
 .subscription-item:hover {
-    border: 1px solid rgba(244, 8, 0, 0.5); 
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #a668c7;
 }
 
-/* Chart Section */
+.subscription-item p {
+    margin: 5px 0;
+}
+
+/* Billing Cycle Section */
+.billing-cycle-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.billing-cycle-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #a668c7;
+}
+
 .chart-container {
-    margin-top: 20px;
+    margin: 20px auto;
     background-color: #2f2f4f;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    overflow-x: auto; /* Enable horizontal scroll for smaller devices */
 }
 
+/* PayU Section */
 .payu-section {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.15);
     margin-top: 50px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.payu-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #a668c7;
+}
+
+.payu-section p {
+    margin: 5px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .subscription-header .left h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    .subscription-header .left h3 {
+        font-size: 1rem;
+    }
+
+    .subscriptions-list {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    }
+
+    .chart-container {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .payu-section {
+        padding: 15px;
+    }
 }
