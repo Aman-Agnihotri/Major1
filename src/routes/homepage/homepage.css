@@ -234,6 +234,10 @@
     .left h1 {
       font-size: 38px;
     }
+
+    .orbital{
+      display: none;
+    }
   }
   
   @media screen and (max-width: 768px) {
