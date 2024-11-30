@@ -61,7 +61,7 @@
       }
   
       @media screen and (max-width: 768px) {
-        font-size: 15px;
+        font-size: 12px;
         line-height: 1.5;
       }
     }
@@ -85,7 +85,7 @@
       font-size: 24px;
   
       @media screen and (max-width: 768px) {
-        font-size: 17px; 
+        font-size: 14px; 
       }
     }
   
@@ -232,7 +232,7 @@
   
   @media screen and (max-width: 1024px) {
     .left h1 {
-      font-size: 44px;
+      font-size: 38px;
     }
   }
   
