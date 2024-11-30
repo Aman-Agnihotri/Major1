@@ -14,7 +14,7 @@ const RootLayout = () => {
     <div className="rootLayout">
         <header>
             <Link to="/" className="logo">
-                <img src="/logo.avif" alt="" />
+                <img className="applogo" src="/logo.avif" alt="" />
                 <span className="appname">StreamManage</span>
             </Link>
             <div className="user">

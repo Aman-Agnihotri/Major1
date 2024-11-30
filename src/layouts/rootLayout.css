@@ -47,8 +47,12 @@
     }
 
     header {
-        flex-direction: column; /* Stack items vertically */
-        gap: 10px; /* Add spacing between items */
+        /* flex-direction: column;  */
+        gap: 10px;
+    }
+
+    .applogo{
+        display: none;
     }
 
     .logo span {
