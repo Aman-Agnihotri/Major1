@@ -2,10 +2,10 @@
     display: flex;
     align-items: center;
     gap: 100px;
-    height: 100vh; 
+    height: 90vh; 
     padding: 20px;
     position: relative;
-    overflow-y: scroll;
+    overflow: hidden;
   
     @media screen and (max-width: 1024px) {
       flex-direction: column;

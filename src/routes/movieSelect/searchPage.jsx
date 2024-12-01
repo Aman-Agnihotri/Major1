@@ -75,9 +75,6 @@ const SearchPage = () => {
               initial={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
-              <button className="resultTitle" onClick={() => openDialog(result)} onKeyDown={(e) => { if (e.key === 'Enter') openDialog(result); }}>
-                {result.title}
-              </button>
               <button className="poster-button" onClick={() => openDialog(result)} onKeyDown={(e) => { if (e.key === 'Enter') openDialog(result); }}>
                 <img src={result.imageSet?.verticalPoster?.w480 || ''} alt={result.title} className="poster" />
               </button>

@@ -9,11 +9,11 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 const SubscriptionPage = () => {
   const subscriptions = [
-    { service: 'Netflix', price: '₹1,245', nextBilling: '2024-11-01' },
-    { service: 'Amazon Prime', price: '₹996', nextBilling: '2024-11-15' }, 
-    { service: 'Disney+', price: '₹830', nextBilling: '2024-11-20' }, 
-    { service: 'Spotify', price: '₹747', nextBilling: '2024-12-01' }, 
-    { service: 'YouTube Premium', price: '₹1,494', nextBilling: '2024-12-10' }, 
+    { service: 'Netflix', price: '₹649', nextBilling: '2024-11-01' },
+    { service: 'Amazon Prime', price: '₹1499', nextBilling: '2025-11-15' }, 
+    { service: 'Disney+', price: '₹1449', nextBilling: '2025-11-20' }, 
+    { service: 'Spotify', price: '₹66', nextBilling: '2024-12-01' }, 
+    { service: 'YouTube Premium', price: '₹199', nextBilling: '2024-12-10' }, 
   ];
 
   useEffect(() => {

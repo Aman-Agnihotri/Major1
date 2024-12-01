@@ -26,6 +26,8 @@
   
   /* Individual option cards */
   .option {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +45,6 @@
     transform: translateY(-10px);
     background: linear-gradient(145deg, #3e3e73, #2c2c54); 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    border: 1px solid white; 
   }
   
   .option img {
@@ -75,6 +76,26 @@
   .option:hover a,
   .option:hover span {
     color: #ffd369; /* Golden accent */
+  }
+
+  /* Glowing border effect */
+  .option::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #ffd369, #4e4e8b);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    /* Send the glowing border behind the card */
+  }
+
+  .option:hover::before {
+    opacity: 0.7;
   }
   
   /* Responsive adjustments for tablets and smaller screens */
