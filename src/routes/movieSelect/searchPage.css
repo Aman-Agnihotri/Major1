@@ -21,20 +21,22 @@
 
 .search-bar {
   width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #8c2b8c;
+  max-width: 400px;
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: 2px solid #8c2b8c;
   background-color: #2e2e44;
   color: #fff;
+  font-size: 16px;
 }
 
 .filter-select {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #8c2b8c;
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: 2px solid #8c2b8c;
   background-color: #2e2e44;
   color: #fff;
+  font-size: 16px;
 }
 
 .search-button {
@@ -49,87 +51,60 @@
 }
 
 .search-button img {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 /* Results container */
 .results-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   width: 100%;
   max-width: 1200px;
   margin-top: 20px;
 }
 
+.resultTitle{
+  padding: 10px;
+  margin: 10px;
+  background-color: #f4a261;
+  border: none;
+  border-radius: 5px;
+}
+
+.resultTitle:hover{
+  cursor: pointer;
+}
+
 /* Info card */
 .info-card {
-  background-color: transparent;
-  border-radius: 10px;
+  background-color: #1e1e2f;
+  border-radius: 15px;
   padding: 10px;
-  text-align: center;
-}
-
-/* Poster container */
-.poster-container {
-  position: relative;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
 }
 
-.poster-container:hover {
+.info-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
 
 /* Poster image */
 .poster {
   width: 100%;
   height: auto;
-  max-height: 300px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-/* Adjust poster size for phones */
-@media (max-width: 768px) {
-  .poster {
-    max-height: 200px;
-  }
-}
-
-/* Movie name button (on top of the poster) */
-.result-title {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.7);
+.poster-button {
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  text-align: center;
-  z-index: 10;
-}
-
-.result-title:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  transform: scale(1.05);
-}
-
-.result-title:focus {
-  outline: 2px solid #ffd369;
-  outline-offset: 2px;
+  background: none;
+  padding: 0;
 }
 
 /* Dialog overlay */
