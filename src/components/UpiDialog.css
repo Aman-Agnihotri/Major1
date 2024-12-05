@@ -1,0 +1,89 @@
+.upi-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.upi-dialog {
+  background-color: #1e1e2f;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.upi-dialog h2 {
+  color: #a668c7;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.upi-dialog p {
+  margin-bottom: 1.5rem;
+  color: #ccc;
+}
+
+.upi-input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid #6b288f;
+  border-radius: 8px;
+  background-color: #2e2e44;
+  color: white;
+  font-size: 1rem;
+}
+
+.upi-input:focus {
+  outline: none;
+  border-color: #a668c7;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancel-button, .submit-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cancel-button {
+  background-color: transparent;
+  border: 1px solid #6b288f;
+  color: white;
+}
+
+.submit-button {
+  background-color: #6b288f;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: rgba(107, 40, 143, 0.2);
+}
+
+.submit-button:hover {
+  background-color: #8a2be2;
+}

@@ -4,16 +4,23 @@
     background-color: rgb(38, 36, 59);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-radius: 10px;
-    min-height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Enable vertical scroll */
-    box-sizing: border-box; /* Ensure padding is included in height */
-    max-width: 1200px; /* Limit page width */
+    min-height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    max-width: 1200px;
     color: #fff;
+    transition: filter 0.3s ease;
+}
+
+.subscription-page.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
 }
 
 .subscription-header {
     display: flex;
-    flex-direction: column; /* Stack header items for smaller screens */
+    flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px;
@@ -35,7 +42,6 @@
     color: #a668c7;
 }
 
-/* Subscriptions Section */
 .subscriptions-section {
     margin-top: 40px;
 }
@@ -73,7 +79,6 @@
     margin: 5px 0;
 }
 
-/* Billing Cycle Section */
 .billing-cycle-section {
     margin-top: 50px;
     text-align: center;
@@ -92,33 +97,12 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 800px;
-    overflow-x: auto; /* Enable horizontal scroll for smaller devices */
+    overflow-x: auto;
 }
 
-/* PayU Section */
-.payu-section {
-    background: rgba(255, 255, 255, 0.15);
-    margin-top: 50px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #fff;
-}
-
-.payu-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #a668c7;
-}
-
-.payu-section p {
-    margin: 5px 0;
-}
-
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .subscription-header .left h1 {
-        font-size: 2rem; /* Smaller font size for mobile */
+        font-size: 2rem;
     }
 
     .subscription-header .left h3 {
@@ -126,14 +110,10 @@
     }
 
     .subscriptions-list {
-        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+        grid-template-columns: 1fr;
     }
 
     .chart-container {
-        padding: 10px; /* Reduce padding for smaller screens */
-    }
-
-    .payu-section {
-        padding: 15px;
+        padding: 10px;
     }
 }
