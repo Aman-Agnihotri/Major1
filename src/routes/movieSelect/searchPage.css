@@ -157,20 +157,23 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .dialog-box {
-  position: relative; 
+  position: relative;
   background-color: #1e1e2f;
   padding: 20px;
   border-radius: 20px;
-  width: 80%;
+  width: 90%;
   max-width: 800px;
   color: white;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   min-height: 400px;
+  margin: auto;
 }
 
 /* Backdrop image */
@@ -202,8 +205,8 @@
   padding: 8px;
   border-radius: 4px;
   margin: 8px 0;
-  position: relative;
-  z-index: 1;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .dialog-content h2 {
@@ -269,4 +272,64 @@
   50% {
     opacity: 1;
   }
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+  .dialog-box {
+    width: 95%;
+    padding: 15px;
+    min-height: auto;
+    margin: 10px;
+  }
+
+  .dialog-content {
+    padding: 15px;
+    margin-bottom: 60px;
+  }
+
+  .dialog-content p {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .streaming-options {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .close-button {
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialog-box {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .dialog-content {
+    padding: 10px;
+    margin-bottom: 50px;
+  }
+
+  .dialog-content h2 {
+    font-size: 18px;
+  }
+
+  .dialog-content p {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .streaming-options {
+    padding: 8px;
+    gap: 8px;
+  }
+
 }
