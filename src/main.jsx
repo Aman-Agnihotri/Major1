@@ -9,6 +9,8 @@ import SignInPage from "./routes/signInPage/SignInPage";
 import SignUpPage from "./routes/signUpPage/SignUpPage";
 import Subscription from "./routes/subscription/Subscription";
 import SearchPage from "./routes/movieSelect/searchPage";
+import Alerts from "./routes/billAlerts/alerts";
+
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,10 @@ const router = createBrowserRouter([
         path:"/search-page",
         element:<SearchPage/>
       },
-      
+      {
+        path: "/alerts",
+        element: <Alerts />
+      }
    ]
   },
 ]);

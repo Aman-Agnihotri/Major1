@@ -28,7 +28,7 @@ const Dashboardpage = () => {
           <span>Find a Movie</span>
         </Link>
 
-        <Link className="option">
+        <Link className="option" to="/alerts">
           <img src="/notification.png" alt="Alerts" />
           <span>Get Alerts</span>
         </Link>

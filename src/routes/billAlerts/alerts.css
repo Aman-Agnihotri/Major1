@@ -1,0 +1,67 @@
+/* src/routes/billAlerts/alerts.css */
+.alerts-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.alerts-container h1 {
+    text-align: center;
+    color: #a668c7;
+    margin-bottom: 30px;
+}
+
+.preferences-form {
+    background-color: #1e1e2f;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.preference-group {
+    margin-bottom: 30px;
+}
+
+.preference-group h2 {
+    color: #a668c7;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.preference-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.preference-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    accent-color: #6b288f;
+}
+
+.status-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(166, 104, 199, 0.2);
+    color: #a668c7;
+}
+
+@media (max-width: 768px) {
+    .alerts-container {
+        padding: 10px;
+    }
+
+    .preferences-form {
+        padding: 20px;
+    }
+
+    .preference-group h2 {
+        font-size: 1.2rem;
+    }
+}
