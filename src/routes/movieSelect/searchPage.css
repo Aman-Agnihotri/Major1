@@ -162,16 +162,55 @@
 .dialog-box {
   position: relative; 
   background-color: #1e1e2f;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   width: 80%;
-  max-width: 500px;
+  max-width: 800px;
   color: white;
-  line-height: 2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.dialog-box h2 {
+/* Backdrop image */
+.backdrop-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+}
+
+/* Dialog content */
+.dialog-content {
+  position: relative;
+  overflow-y: auto;
+}
+
+.dialog-content h2 {
   color: #f4a261;
+}
+
+/* Streaming options */
+.streaming-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.streaming-options img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.streaming-options img:hover {
+  transform: scale(1.1);
 }
 
 .close-button {
@@ -184,6 +223,7 @@
   color: #f77f00;
   cursor: pointer;
   transition: color 0.3s ease;
+  z-index: 1;
 }
 
 .close-button:hover {

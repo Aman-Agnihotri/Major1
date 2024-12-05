@@ -7,7 +7,7 @@ const UpiDialog = ({ onClose, onSubmit }) => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Basic UPI ID validation
@@ -16,6 +16,11 @@ const UpiDialog = ({ onClose, onSubmit }) => {
       setError('Please enter a valid UPI ID');
       return;
     }
+
+    // Simulate loading time
+    setError('Processing...');
+    await new Promise(resolve => setTimeout(resolve, 7000));
+    setError('');
     
     onSubmit(upiId);
   };

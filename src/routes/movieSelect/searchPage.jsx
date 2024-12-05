@@ -89,14 +89,46 @@ const SearchPage = () => {
             <button className="close-button" onClick={closeDialog}>
               &times;
             </button>
-            <h2>{selectedResult.title}</h2>
-            <p><strong>Overview:</strong> {selectedResult.overview}</p>
-            <p><strong>Release Year:</strong> {selectedResult.releaseYear}</p>
-            <p><strong>Genres:</strong> {selectedResult.genres.map((genre) => genre.name).join(', ')}</p>
-            <p><strong>{filter === 'movie' ? 'Director: ' : 'Creator: '}</strong> { filter === 'movie' ? selectedResult.directors.join(', ') : selectedResult.creators.join(', ')}</p>
-            <p><strong>Cast:</strong> {selectedResult.cast.join(', ')}</p>
-            <p><strong>Rating:</strong> {selectedResult.rating}</p>
-            <p><strong>Runtime:</strong> {selectedResult.runtime} minutes</p>
+            {/* Backdrop Image */}
+            {selectedResult.imageSet?.horizontalBackdrop && (
+              <div
+                className="backdrop-image"
+                style={{
+                  backgroundImage: `url(${selectedResult.imageSet.horizontalBackdrop.w1440})`,
+                }}
+              ></div>
+            )}
+            <div className="dialog-content">
+              <h2>{selectedResult.title}</h2>
+              <p><strong>Overview:</strong> {selectedResult.overview}</p>
+              <p><strong>Release Year:</strong> {selectedResult.releaseYear}</p>
+              <p><strong>Genres:</strong> {selectedResult.genres.map((genre) => genre.name).join(', ')}</p>
+              <p><strong>{filter === 'movie' ? 'Director: ' : 'Creator: '}</strong> { filter === 'movie' ? selectedResult.directors.join(', ') : selectedResult.creators.join(', ')}</p>
+              <p><strong>Cast:</strong> {selectedResult.cast.join(', ')}</p>
+              <p><strong>Rating:</strong> {selectedResult.rating}</p>
+              <p><strong>Runtime:</strong> {selectedResult.runtime} minutes</p>
+            </div>
+            <div className="streaming-options">
+              {selectedResult.streamingOptions?.in &&
+                  Object.values(
+                    selectedResult.streamingOptions.in.reduce((acc, option) => {
+                      const serviceId = option.service.id;
+                      // Prioritize 'buy' over other types
+                      if (
+                        !acc[serviceId] ||
+                        (acc[serviceId].type !== 'buy' && option.type === 'buy')
+                      ) {
+                        acc[serviceId] = option;
+                      }
+                      return acc;
+                    }, {})
+                  ).map((option) => (
+                    <a key={option.service.id} href={option.link} target="_blank" rel="noopener noreferrer">
+                      <img src={option.service.imageSet.lightThemeImage} alt={option.service.name} />
+                    </a>
+                  ))
+              }
+            </div>
           </div>
         </div>
       )}
